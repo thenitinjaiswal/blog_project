@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<section class="page">
+  <div class="auth-card">
+    <h1>Welcome Back</h1>
+    <p class="auth-subtitle">Log in to your account</p>
+
+    <form method="POST" class="form-card" action="{% url 'users:login' %}" method="POST">
+      {% csrf_token %}
+      {{ form }}
+      {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}" />
+      {% endif %}
+      <button type="submit" class="btn-primary btn-submit">Login</button>
+    </form>
+    
+    <p class="auth-footer">Don't have an account? <a href="{% url 'users:registers' %}">Register here</a></p>
+  </div>
+</section>
+{% endblock %}

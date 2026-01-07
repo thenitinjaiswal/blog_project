@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<section class="page">
+  <div class="auth-card">
+    <h1>Create Account</h1>
+    <p class="auth-subtitle">Join our community today</p>
+
+    <form method="POST" class="form-card" action="{% url 'users:registers' %}" method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit" class="btn-primary btn-submit">Create Account</button>
+    </form>
+    
+    <p class="auth-footer">Already have an account? <a href="{% url 'users:login' %}">Login here</a></p>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<section class="page">
+    <div class="about-card">
+        <h1>About BlogApp</h1>
+
+        <p>
+            Hello! Welcome to BlogApp, your go-to platform for creating and sharing blog posts.
+        </p>
+
+        <p>
+            I am the Nitin Jaiswal, the developer behind BlogApp. I built this platform to provide a simple and intuitive space for writers and readers to connect through the power of words.
+        </p>
+
+        <div class="actions">
+            <a href="/" class="btn-primary">Back to Home</a>
+            <a href="{% url 'posts:list' %}" class="btn-secondary">Browse Posts</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

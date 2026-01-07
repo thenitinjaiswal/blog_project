@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="page hero-section">
+    <div class="home-card">
+        <h1>Welcome to BlogApp</h1>
+        <p class="hero-text">
+            A clean, simple platform to write, read, and share your ideas with the world.
+        </p>
+
+        <div class="actions">
+            {% if user.is_authenticated %}
+                <a href="{% url 'posts:new-post' %}" class="btn-primary">Start Writing</a>
+            {% else %}
+                <a href="{% url 'users:registers' %}" class="btn-primary">Get Started</a>
+            {% endif %}
+            <a href="{% url 'posts:list' %}" class="btn-secondary">Read Posts</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}New Post{% endblock %}
+
+{% block content %}
+<section class="page">
+  <div class="form-container">
+    <h1>Create New Post</h1>
+    <p class="form-subtitle">Share your thoughts with the world</p>
+    
+    <form class="form-card" action="{% url 'posts:new-post' %}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit" class="btn-primary btn-submit">Publish Post</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
+
